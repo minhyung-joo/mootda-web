@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/assets/favicon.ico" />
+    <link rel="canonical" href="https://www.mootda.com/">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="묻다는 다양한 현직자와 통화로 대화하는 커리어 앱 플랫폼입니다"
+    />
+    <meta
+      name="robots"
+      content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="%PUBLIC_URL%/assets/social-2.png"
+    />
+    <meta
+      property="og:title"
+      content="묻다"
+    />
+    <meta
+      property="og:description"
+      content="다양한 현직자와 통화로 대화하는 커리어 앱 플랫폼"
+    />
+    <meta property="og:url" content="https://www.mootda.com/" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      묻다 - 다양한 현직자와 통화로 대화하는 커리어 앱 플랫폼
+    </title>
+    <script
+      src="https://kit.fontawesome.com/4c273e6d43.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EFGZQ1R5JT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EFGZQ1R5JT');
+      gtag('config', 'AW-334838074');
+    </script>
+    <!-- Event snippet for 외부 클릭 conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-334838074/IhkMCM_wrO4CELry1J8B',
+            'event_callback': callback
+        });
+        return false;
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
