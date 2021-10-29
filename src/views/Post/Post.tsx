@@ -120,8 +120,8 @@ const useStyles = makeStyles(theme => {
     }
 })
 
-const HOST = "http://localhost:8000"
-//const HOST = "https://api.mootda.com"
+//const HOST = "http://localhost:8000"
+const HOST = "https://api.mootda.com"
 
 const Post = () => {
     const classes = useStyles()

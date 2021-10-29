@@ -41,8 +41,8 @@ const useStyles = makeStyles(theme => {
     }
 })
 
-const HOST = "http://localhost:8000"
-//const HOST = "https://api.mootda.com"
+//const HOST = "http://localhost:8000"
+const HOST = "https://api.mootda.com"
 
 const Board = () => {
     const classes = useStyles()
