@@ -12,14 +12,6 @@ interface CardReviewProps {
    */
   text: string;
   /**
-   * Reviewer photo to show inside the review card.Should be an object with src and srcSet properties
-   */
-  authorPhoto: object;
-  /**
-   * Reviewer name to show inside the review card
-   */
-  authorName: string;
-  /**
    * Reviewer title to show inside the review card
    */
   authorTitle?: string;

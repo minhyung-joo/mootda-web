@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.background.footer,
   },
   footerContainer: {
-    maxWidth: theme.layout.contentWidth,
+    maxWidth: 1236,
     width: '100%',
     margin: '0 auto',
     padding: theme.spacing(0, 2),

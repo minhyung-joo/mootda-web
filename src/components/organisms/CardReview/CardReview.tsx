@@ -27,9 +27,6 @@ const useStyles = makeStyles(theme => ({
 const CardReview = ({
   icon,
   text,
-  authorPhoto,
-  authorName,
-  authorTitle,
   align = 'center',
   textVariant = 'h6',
   className,
@@ -71,36 +68,6 @@ const CardReview = ({
           >
             {text}
           </Typography>
-        </Grid>
-        <Grid item xs={12} className="card-review__lits-container">
-          <Grid
-            container
-            justify={justifyGrid}
-            className="card-review__list-wrapper"
-          >
-            <List disablePadding className="card-review__list">
-              <ListItem className="card-review__list-item">
-                <ListItemAvatar className="card-review__list-item-avatar">
-                  <Avatar
-                    {...authorPhoto}
-                    alt={authorName}
-                    className="card-review__avatar"
-                  />
-                </ListItemAvatar>
-                <ListItemText
-                  className="card-review__list-item-text"
-                  primary={authorName}
-                  secondary={authorTitle}
-                  primaryTypographyProps={{
-                    ...listItemPrimaryTypographyProps,
-                  }}
-                  secondaryTypographyProps={{
-                    ...listItemSecondaryTypographyProps,
-                  }}
-                />
-              </ListItem>
-            </List>
-          </Grid>
         </Grid>
       </Grid>
     </CardBase>

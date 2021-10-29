@@ -25,6 +25,8 @@ import clsx from 'clsx';
 import { useHistory } from 'react-router';
 import ReactGa from 'react-ga';
 
+declare let gtag: Function;
+
 const useStyles = makeStyles(theme => {
     return {
         root: {

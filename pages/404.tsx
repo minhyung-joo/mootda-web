@@ -5,14 +5,13 @@
  */
 import React from 'react';
 import NotFoundCover from '../src/views/NotFoundCover';
-import Minimal from 'layouts/Minimal';
+import Main from '../src/views/Main';
 import WithLayout from 'WithLayout';
 
 const FourOFourPage = (): JSX.Element => {
   return (
-    <WithLayout
+    <Main
       component={NotFoundCover}
-      layout={Minimal}
     />
   )
 };
