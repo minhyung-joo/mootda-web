@@ -21,6 +21,8 @@ const useStyles = makeStyles(theme => {
                 height: 24,
                 width: 24,
                 marginRight: 8,
+                objectFit: 'cover',
+                borderRadius: '50%',
             },
             '& .time-str': {
                 marginLeft: 'auto',
@@ -59,8 +61,11 @@ const useStyles = makeStyles(theme => {
         },
         reactionDiv: {
             width: 100,
-            textAlign: 'center',
             fontSize: 12,
+            '& span': {
+                fontWeight: 'bold',
+                color: '#884DFF',
+            }
         },
         commentDiv: {
             marginLeft: 'auto',
@@ -117,10 +122,10 @@ const PostBox = ({ post, onClick }) => {
         </div>}
         {(post.curious || post.answerer || post.comment) && <div className={classes.bottomRow}>
             {post.curious_total > 0 && <div className={classes.reactionDiv}>
-                궁금해요 {post.curious_total}
+                궁금해요 <span>{post.curious_total}</span>
             </div>}
             {post.answerer_total > 0 && <div className={classes.reactionDiv}>
-                대답해줄래요 {post.answerer_total}
+                대답해줄래요 <span>{post.answerer_total}</span>
             </div>}
             {post.comment_total > 0 && <div className={classes.commentDiv}>
                 <Comment className="comment-icon" /> {post.comment_total}

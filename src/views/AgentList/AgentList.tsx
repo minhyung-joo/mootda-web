@@ -156,28 +156,17 @@ const useStyles = makeStyles(theme => {
 //const HOST = "http://localhost:8000"
 const HOST = "https://api.mootda.com"
 
-const AgentList = (): JSX.Element => {
+const AgentList = ({ initialProfiles }): JSX.Element => {
     const classes = useStyles();
     const history = useHistory();
-    const [profiles, setProfiles] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [profiles, setProfiles] = useState(initialProfiles);
+    const [loading, setLoading] = useState(false);
     const [allLoaded, setAllLoaded] = useState(false);
     const [page, setPage] = useState(1);
     const [lastQuery, setLastQuery] = useState('');
     const [query, setQuery] = useState('');
     const [category, setCategory] = useState(null);
     const [categoryOpen, setCategoryOpen] = useState(false);
-
-    useEffect(() => {
-        fetch(`${HOST}/v1/user/profile/search/`,).then((response) => {
-            response.json().then((resJson) => {
-                setProfiles(resJson.profiles);
-                setLoading(false);
-            })
-        }).catch((e) => {
-            setLoading(false);
-        });
-    }, []);
 
     const onProfileClick = (id) => {
         window.open('/profile/' + id)

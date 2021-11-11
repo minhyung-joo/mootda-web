@@ -24,6 +24,8 @@ const useStyles = makeStyles(theme => {
                 height: 24,
                 width: 24,
                 marginRight: 8,
+                objectFit: 'cover',
+                borderRadius: '50%',
             },
             '& .reply-arrow': {
                 height: 16,

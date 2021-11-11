@@ -38,13 +38,24 @@ const useStyles = makeStyles(theme => {
             justifyContent: 'center',
             fontWeight: 'bold',
         },
+        requestBox: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: 12,
+            marginBottom: 12,
+            borderRadius: 8,
+            '& .download-label': {
+                marginBottom: 12,
+            }
+        },
     }
 })
 
 //const HOST = "http://localhost:8000"
 const HOST = "https://api.mootda.com"
 
-const Board = () => {
+const Board = ({ initialPosts, onDownloadClick }) => {
     const classes = useStyles()
 
     const [lastQuery, setLastQuery] = useState('');
@@ -52,7 +63,7 @@ const Board = () => {
     const [query, setQuery] = useState('')
     const [loading, setLoading] = useState(true)
     const [allLoaded, setAllLoaded] = useState(false)
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState(initialPosts)
     const [page, setPage] = useState(1);
 
     const onLoadMoreClick = () => {
@@ -73,19 +84,6 @@ const Board = () => {
         });
     }
 
-    useEffect(() => { 
-        fetch(`${HOST}/v1/board/post/search/?page=${page}`).then((response) => {
-            response.json().then((resJson) => {
-                setPosts(resJson.posts);
-                setLoading(false);
-            })
-        }).catch((e) => {
-            setLoading(false);
-        });
-    }, []);
-
-    console.log(posts)
-
     const handleKeyDown = (e) => {
         if (e.keyCode == 13) {
             setLoading(true);
@@ -104,7 +102,7 @@ const Board = () => {
                     response.json().then((resJson) => {
                         setPosts(resJson.posts);
 
-                        if (resJson.profiles.length < 10) {
+                        if (resJson.posts.length < 10) {
                             setAllLoaded(true);
                         }
                         
@@ -118,6 +116,8 @@ const Board = () => {
             }
         }
     }
+
+    console.log(allLoaded);
 
     return <div className={clsx(classes.root, 'image-crisp')}>
         <main className={classes.postList}>
@@ -141,8 +141,15 @@ const Board = () => {
                     }}
                 />
             })}
-            {!allLoaded && <div className={classes.betaButton} onClick={onLoadMoreClick}>
+            {!allLoaded ? <div className={classes.betaButton} onClick={onLoadMoreClick}>
                 더 보기
+            </div> : <div className={classes.requestBox}>
+                <div className="download-label">
+                    찾는 내용이 없으신가요?
+                </div>
+                <div className={classes.betaButton} onClick={onDownloadClick}>
+                    앱에서 질문 올리기
+                </div>
             </div>}
         </main>
     </div>

@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
             <meta property="og:type" content="website" />
             <meta
             property="og:image"
-            content="%PUBLIC_URL%/assets/social-2.png"
+            content="/assets/social-2.png"
             />
             <meta
             property="og:title"

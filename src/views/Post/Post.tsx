@@ -45,6 +45,8 @@ const useStyles = makeStyles(theme => {
                 marginRight: 8,
                 height: 24,
                 width: 24,
+                objectFit: 'cover',
+                borderRadius: '50%',
             },
             marginBottom: 8,
         },
@@ -116,29 +118,27 @@ const useStyles = makeStyles(theme => {
                 fontWeight: 'bold',
                 color: '#884DFF',
             }
-        }
+        },
+        betaButton: {
+            marginTop: 8,
+            padding: '12px 16px',
+            borderRadius: 4,
+            backgroundColor: "#884DFF",
+            color: "white",
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: 'bold',
+        },
     }
 })
 
 //const HOST = "http://localhost:8000"
 const HOST = "https://api.mootda.com"
 
-const Post = () => {
+const Post = ({ post, onDownloadClick }) => {
     const classes = useStyles()
-    let { id } = useRouter().query
-    const [post, setPost] = useState(null)
-
-    useEffect(() => {
-        if (id) {
-            fetch(`${HOST}/v1/board/post/?id=${id}`).then((response) => {
-                if (response.status === 200) {
-                    response.json().then((resJson) => {
-                        setPost(resJson.post);
-                    })
-                }
-            })
-        }
-    }, [id])
 
     if (post == null) {
         return (
@@ -235,6 +235,12 @@ const Post = () => {
                     })}
                 </>
             })}
+            <div
+                className={classes.betaButton}
+                onClick={onDownloadClick}
+            >
+                앱 다운 후 댓글 달기
+            </div>
         </div>
     </div>
 }

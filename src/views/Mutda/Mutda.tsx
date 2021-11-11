@@ -18,12 +18,13 @@ import {
     CircularProgress,
 } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
-import { PeopleSection, FeatureSection, SolutionSection, Topbar, Footer } from './components';
+import { PeopleSection, FeatureSection, SolutionSection, Topbar, Footer, BoardSection } from './components';
 import getTheme from 'theme';
 import Sidebar from 'components/organisms/Sidebar';
 import clsx from 'clsx';
 import { useHistory } from 'react-router';
 import ReactGa from 'react-ga';
+import { useRouter } from 'next/router';
 
 declare let gtag: Function;
 
@@ -354,7 +355,7 @@ let rightScroll = true;
 const Mutda = (): JSX.Element => {
     const ref = useRef<HTMLInputElement>();
     const classes = useStyles();
-    const history = useHistory();
+    const router = useRouter()
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [snackOpen, setSnackOpen] = useState(false);
     const [email, setEmail] = useState("");
@@ -412,7 +413,7 @@ const Mutda = (): JSX.Element => {
     }
 
     const handleListClick = () => {
-        history.push('/profile/list')
+        router.push('/profile/list')
     }
 
     const appClickConversion = (url) => {
@@ -557,6 +558,7 @@ const Mutda = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
+                {/* <BoardSection /> */}
                 <PeopleSection />
                 <FeatureSection />
                 <SolutionSection />

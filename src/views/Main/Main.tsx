@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => {
     }
 })
 
-const Main = ({ component: Component }): JSX.Element => {
+const Main = ({ component: Component, childProps = {} }): JSX.Element => {
     const classes = useStyles();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [downloadModalOpen, setDownloadModalOpen] = useState(false);
@@ -114,7 +114,7 @@ const Main = ({ component: Component }): JSX.Element => {
                         </ReactGa.OutboundLink>
                     </div>
                 </Modal>
-                <Component onDownloadClick={openDownloadModal} />
+                <Component onDownloadClick={openDownloadModal} {...childProps} />
             </Paper>
         </ThemeProvider>
     )
