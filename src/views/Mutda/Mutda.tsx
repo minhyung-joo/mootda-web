@@ -558,7 +558,7 @@ const Mutda = (): JSX.Element => {
                         </div>
                     </div>
                 </div>
-                {/* <BoardSection /> */}
+                <BoardSection />
                 <PeopleSection />
                 <FeatureSection />
                 <SolutionSection />
