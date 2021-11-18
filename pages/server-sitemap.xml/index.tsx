@@ -16,14 +16,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   profile_ids.forEach((id) => {
       fields.push({
-        loc: 'https://mootda.com/profile/' + id, // Absolute url
+        loc: 'https://www.mootda.com/profile/' + id, // Absolute url
         lastmod: new Date().toISOString(),
       })
   })
 
   post_ids.forEach((id) => {
     fields.push({
-      loc: 'https://mootda.com/post/' + id, // Absolute url
+      loc: 'https://www.mootda.com/post/' + id, // Absolute url
       lastmod: new Date().toISOString(),
     })
 })
