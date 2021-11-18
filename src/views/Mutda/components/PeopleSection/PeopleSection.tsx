@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import peopleScreen from '../../../../assets/images/people_screen.png';
 import { Router } from '@material-ui/icons';
 import { useHistory } from 'react-router';
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme => {
     return {
@@ -89,18 +90,13 @@ const PeopleSection = () => {
                     취업 준비, 대학원 입시, 커리어 개발 관련<br />
                     노하우와 팁을 전수해줄 수 있는 경력자입니다
                 </div>
-                <div
-                    className={classes.agentButton}
-                    onClick={() => {
-                        history.push('/agent');
-                        window.scrollTo({
-                            top: 0,
-                            left: 0,
-                        })
-                    }}
-                >
-                    더 알아보기
-                </div>
+                <Link href='/agent'>
+                    <div
+                        className={classes.agentButton}
+                    >
+                        더 알아보기
+                    </div>
+                </Link>
             </div>
         </section>
     );

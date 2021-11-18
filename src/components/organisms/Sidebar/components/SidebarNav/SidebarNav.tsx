@@ -61,22 +61,21 @@ const SidebarNav = ({ onClose, className, ...rest }: Props): JSX.Element => {
         </ListItemIcon>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Typography 
-          variant="h6" color="textPrimary" gutterBottom
-          component={'a'}
-          href='https://www.notion.so/e4e394eb41e2463e80127fb36814c0d1'
-          target='_blank'
-        >
-          팀 소개
-        </Typography>
-      </ListItem>
-      <ListItem className={classes.listItem}>
         <Typography variant="h6" color="textPrimary" gutterBottom
           component={'a'}
           href='/profile/list'
           target='_blank'
         >
           정보원 리스트
+        </Typography>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Typography variant="h6" color="textPrimary" gutterBottom
+          component={'a'}
+          href='/board'
+          target='_blank'
+        >
+          질문 리스트
         </Typography>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -103,6 +102,16 @@ const SidebarNav = ({ onClose, className, ...rest }: Props): JSX.Element => {
           target='_blank'
         >
           질문 작성 가이드
+        </Typography>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Typography 
+          variant="h6" color="textPrimary" gutterBottom
+          component={'a'}
+          href='https://www.notion.so/e4e394eb41e2463e80127fb36814c0d1'
+          target='_blank'
+        >
+          팀 소개
         </Typography>
       </ListItem>
       <ListItem className={classes.listItem}>

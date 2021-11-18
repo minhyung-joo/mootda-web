@@ -229,22 +229,9 @@ const useStyles = makeStyles(theme => {
 //const HOST = "http://localhost:8000"
 const HOST = "https://api.mootda.com"
 
-const ProfileDetail = ({ onDownloadClick }): JSX.Element => {
+const ProfileDetail = ({ profile, onDownloadClick }): JSX.Element => {
     const classes = useStyles();
     let { id } = useRouter().query;
-    const [profile, setProfile] = useState(null);
-
-    useEffect(() => {
-        if (id) {
-            fetch(`${HOST}/v1/user/profile/?id=${id}`).then((response) => {
-                if (response.status === 200) {
-                    response.json().then((profile) => {
-                        setProfile(profile);
-                    })
-                }
-            })
-        }
-    }, [id])
 
     if (profile == null) {
         return (

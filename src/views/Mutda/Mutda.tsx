@@ -25,6 +25,7 @@ import clsx from 'clsx';
 import { useHistory } from 'react-router';
 import ReactGa from 'react-ga';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 declare let gtag: Function;
 
@@ -553,9 +554,11 @@ const Mutda = (): JSX.Element => {
                         })}
                     </div>
                     <div className={classes.buttonDiv}>
-                        <div className={classes.betaButton} onClick={handleListClick}>
-                            정보원 리스트 보기
-                        </div>
+                        <Link href='/profile/list'>
+                            <div className={classes.betaButton}>
+                                정보원 리스트 보기
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <BoardSection />

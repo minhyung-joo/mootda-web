@@ -5,6 +5,7 @@ import { Grid } from '@material-ui/core';
 import { PostBox } from 'views/Board/components';
 import { useHistory } from 'react-router-dom';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme => {
     return {
@@ -83,20 +84,22 @@ const BoardSection = () => {
             <Grid container spacing={2}>
                 {posts.map((post) => {
                     return <Grid style={{padding: 8, marginBottom: -16}} xs={12} sm={6} md={4}>
-                        <PostBox 
-                            post={post}
-                            onClick={() => {
-                                window.open('/post/' + post.id)
-                            }}
-                        />
+                        <Link href={'/post/' + post.id}>
+                            <PostBox 
+                                post={post}
+                                onClick={() => {}}
+                            />
+                        </Link>
                     </Grid>
                 })}
             </Grid>
         </div>
         <div className={classes.buttonDiv}>
-            <div className={classes.betaButton} onClick={handleListClick}>
-                질문 리스트 보기
-            </div>
+            <Link href="/board">
+                <div className={classes.betaButton}>
+                    질문 리스트 보기
+                </div>
+            </Link>
         </div>
     </div>
 }

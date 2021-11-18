@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles, TextField } from '@material-ui/core';
 import { PostBox } from './components';
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme => {
     return {
@@ -134,12 +135,12 @@ const Board = ({ initialPosts, onDownloadClick }) => {
                 />
             </div>
             {posts.map((post) => {
-                return <PostBox 
-                    post={post}
-                    onClick={() => {
-                        window.open('/post/' + post.id)
-                    }}
-                />
+                return <Link href={"/post/" + post.id}>
+                    <PostBox 
+                        post={post}
+                        onClick={() => {}}
+                    />
+                </Link>
             })}
             {!allLoaded ? <div className={classes.betaButton} onClick={onLoadMoreClick}>
                 더 보기

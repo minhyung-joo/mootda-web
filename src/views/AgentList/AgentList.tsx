@@ -6,6 +6,7 @@ import { Topbar } from 'views/Mutda/components';
 import { Helmet } from "react-helmet";
 import clsx from 'clsx';
 import CategoryOverlay from './components/CategoryOverlay';
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme => {
     return {
@@ -167,11 +168,6 @@ const AgentList = ({ initialProfiles }): JSX.Element => {
     const [query, setQuery] = useState('');
     const [category, setCategory] = useState(null);
     const [categoryOpen, setCategoryOpen] = useState(false);
-
-    const onProfileClick = (id) => {
-        window.open('/profile/' + id)
-        //history.push('/profile/' + id);
-    }
 
     const onLoadMoreClick = () => {
         setLoading(true);
@@ -361,46 +357,48 @@ const AgentList = ({ initialProfiles }): JSX.Element => {
                         />
                     </div>
                     {filteredProfiles.map((profile) => (
-                        <div className={classes.profileItem} onClick={() => onProfileClick(profile.id)}>
-                            <div className={classes.imgBox}>
-                                {profile.careers[0].org.logo ? (
-                                    <img
-                                        className="org-logo"
-                                        src={profile.careers[0].org.logo}
-                                    />
-                                ) : (
-                                    <div className="org-replacement-logo">
-                                        {profile.careers[0].org.name[0]}
+                        <Link href={"/profile/" + profile.id}>
+                            <div className={classes.profileItem}>
+                                <div className={classes.imgBox}>
+                                    {profile.careers[0].org.logo ? (
+                                        <img
+                                            className="org-logo"
+                                            src={profile.careers[0].org.logo}
+                                        />
+                                    ) : (
+                                        <div className="org-replacement-logo">
+                                            {profile.careers[0].org.name[0]}
+                                        </div>
+                                    )}
+                                    {profile.profile_pic ? (
+                                        <img
+                                            className="profile-pic"
+                                            src={profile.profile_pic}
+                                        />
+                                    ) : null}
+                                </div>
+                                <div className={classes.detailBox}>
+                                    <div>
+                                        {profile.nickname}
                                     </div>
-                                )}
-                                {profile.profile_pic ? (
-                                    <img
-                                        className="profile-pic"
-                                        src={profile.profile_pic}
-                                    />
-                                ) : null}
-                            </div>
-                            <div className={classes.detailBox}>
-                                <div>
-                                    {profile.nickname}
-                                </div>
-                                <div className={classes.companyName}>
-                                    {profile.careers[0].org.name}
-                                </div>
-                                <div>
-                                    {[profile.careers[0].dept, profile.careers[0].title].join(' ')}
-                                </div>
-                                {profile.keywords ? (
-                                    <div className={classes.keywordRow}>
-                                        {profile.keywords.map((keyword) => (
-                                            <div className={classes.keywordBox}>
-                                                {keyword.keyword}
-                                            </div>
-                                        ))}
+                                    <div className={classes.companyName}>
+                                        {profile.careers[0].org.name}
                                     </div>
-                                ) : null}
+                                    <div>
+                                        {[profile.careers[0].dept, profile.careers[0].title].join(' ')}
+                                    </div>
+                                    {profile.keywords ? (
+                                        <div className={classes.keywordRow}>
+                                            {profile.keywords.map((keyword) => (
+                                                <div className={classes.keywordBox}>
+                                                    {keyword.keyword}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : null}
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                     {!allLoaded ? (
                         <div className={classes.betaButton} onClick={onLoadMoreClick}>

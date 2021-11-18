@@ -8,6 +8,7 @@
     "dev": "next dev",
     "start": "next start",
     "build": "cross-env GENERATE_SOURCEMAP=false next build",
+    "postbuild": "next-sitemap",
     "prettier": "prettier --write '**/*.{js,css,html}'",
     "clear-all": "rimraf ./.cache ./.next ./node_modules"
   },
@@ -80,6 +81,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "next-sitemap": "^1.6.203",
     "prettier": "^1.19.1",
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^5.0.0",

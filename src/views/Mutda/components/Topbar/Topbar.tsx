@@ -145,10 +145,10 @@ const Topbar = ({ onSidebarOpen, onClickButton, className, ...rest }) => {
                                 color="textPrimary"
                                 className={clsx(classes.listItemText, 'menu-item')}
                                 component={'a'}
-                                href='https://www.notion.so/e4e394eb41e2463e80127fb36814c0d1'
+                                href='/board'
                                 target='_blank'
                             >
-                                팀 소개
+                                질문 리스트
                             </Typography>
                         </ListItem>
                         <ListItem
@@ -226,6 +226,18 @@ const Topbar = ({ onSidebarOpen, onClickButton, className, ...rest }) => {
                                         color="textSecondary"
                                     >
                                         질문 작성 가이드
+                                    </Typography>
+                                </ListItem>
+                                <ListItem disableGutters className={classes.menuGroupItem}>
+                                    <Typography
+                                        variant="body1"
+                                        component={'a'}
+                                        href="https://www.notion.so/e4e394eb41e2463e80127fb36814c0d1"
+                                        target='_blank'
+                                        className={clsx(classes.navLink, 'submenu-item')}
+                                        color="textSecondary"
+                                    >
+                                        팀 소개
                                     </Typography>
                                 </ListItem>
                                 <ListItem disableGutters className={classes.menuGroupItem}>

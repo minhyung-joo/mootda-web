@@ -179,9 +179,16 @@ const Footer = () => {
                     <div className={classes.divider}>
                         |
                     </div>
+                    <a target="_blank" href="https://www.notion.so/e4e394eb41e2463e80127fb36814c0d1" className={classes.linkText}>
+                        팀 소개
+                    </a>
+                    <div className={classes.divider}>
+                        |
+                    </div>
                     <a target="_blank" href="https://www.mootda.com/privacy_policy.html" className={classes.linkText}>
                         개인정보처리방침
                     </a>
+                    
                 </div>
             </div>
             <div className={classes.infoContainer}>
