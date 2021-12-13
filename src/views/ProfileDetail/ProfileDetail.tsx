@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Helmet } from "react-helmet";
+import { ReviewBox } from './components';
 
 const useStyles = makeStyles(theme => {
     return {
@@ -222,6 +223,12 @@ const useStyles = makeStyles(theme => {
                 width: 'auto',
                 height: '100%',
             }
+        },
+        reviewSection: {
+            overflow: 'auto',
+            marginBottom: 12,
+            whiteSpace: 'nowrap',
+            zIndex: 1,
         }
     }
 });
@@ -229,9 +236,8 @@ const useStyles = makeStyles(theme => {
 //const HOST = "http://localhost:8000"
 const HOST = "https://api.mootda.com"
 
-const ProfileDetail = ({ profile, onDownloadClick }): JSX.Element => {
+const ProfileDetail = ({ profile, reviews, onDownloadClick }): JSX.Element => {
     const classes = useStyles();
-    let { id } = useRouter().query;
 
     if (profile == null) {
         return (
@@ -370,6 +376,18 @@ const ProfileDetail = ({ profile, onDownloadClick }): JSX.Element => {
                         </div>
                         <div className={classes.introBox}>
                             {profile.intro}
+                        </div>
+                        <div className={classes.headerDivider}>
+                            감사의 말
+                        </div>
+                        <div className={classes.reviewSection}>
+                            {reviews.map((review) => (
+                                <ReviewBox
+                                    reviewStr={review.publicComment}
+                                    nickname={review.nickname}
+                                    reviewDate={new Date(Date.parse(review.requestDate))}
+                                />
+                            ))}
                         </div>
                         <div
                             className={classes.betaButton}
