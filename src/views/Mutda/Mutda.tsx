@@ -435,7 +435,7 @@ const Mutda = (): JSX.Element => {
           return false;
     }
 
-    const filteredProfiles = profiles.filter((p) => p.careers.length && p.schedules.length);
+    const filteredProfiles = profiles.filter((p) => p.careers && p.schedules && p.careers.length && p.schedules.length);
     console.log (filteredProfiles)
 
     return (
