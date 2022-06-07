@@ -52,6 +52,33 @@ const useStyles = makeStyles(theme => {
                 marginBottom: 6.75,
             },
         },
+        alertBody: {
+            position: 'absolute',
+            top: 'calc(50% - 215px)',
+            left: 'calc(50% - 200px)',
+            display: 'flex',
+            width: 400,
+            height: 430,
+            padding: 24,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'white',
+            borderRadius: 8,
+            flexDirection: 'column',
+            whiteSpace: "pre-wrap",
+        },
+        betaButton: {
+            marginTop: '24px',
+            padding: '8px 24px',
+            borderRadius: 4,
+            backgroundColor: "#884DFF",
+            color: "white",
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: 'bold',
+        }
     }
 })
 
@@ -59,8 +86,13 @@ const Main = ({ component: Component, childProps = {} }): JSX.Element => {
     const classes = useStyles();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [downloadModalOpen, setDownloadModalOpen] = useState(false);
+    const [alertOpen, setAlertOpen] = useState(false);
 
     useEffect(() => {
+        if (Date.now() <= Date.UTC(2022, 5, 14, 0, 0, 0)) {
+            setAlertOpen(true);
+        }
+
         ReactGa.initialize('UA-191887139-1');
 
         ReactGa.pageview('/');
@@ -112,6 +144,36 @@ const Main = ({ component: Component, childProps = {} }): JSX.Element => {
                         >
                             <img className="play-button" src={playStoreButton} alt="플레이 스토어 다운로드" />
                         </ReactGa.OutboundLink>
+                    </div>
+                </Modal>
+                <Modal
+                    open={alertOpen}
+                    onClose={() => setAlertOpen(false)}
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                >
+                    <div className={classes.alertBody}>
+묻다 이용약관 및 개인정보처리방침은 2022년 6월 14일부로 아래와 같이 변경될 예정입니다. 주요 사항은 다음과 같습니다<br />
+<br />
+이용약관 변경 전 : <br />
+상호명 : (주) 큐리어스원스 (Curious One Corp.)<br />
+<br />
+이용약관 변경 후 : <br />
+상호명 : (주) 아페로 (Apeiro Corp.)<br />
+<br />
+개인정보처리방침 변경 전 : <br />
+상호명 : (주) 큐리어스원스 (Curious One Corp.)<br />
+개인정보보호 책임자 : 이재형 <br />
+<br />
+개인정보처리방침 변경 후 : <br />
+상호명 : (주) 아페로 (Apeiro Corp.)<br />
+개인정보보호 책임자 : 주민형
+                        <div
+                            className={classes.betaButton}
+                            onClick={() => setAlertOpen(false)}
+                        >
+                            확인
+                        </div>
                     </div>
                 </Modal>
                 <Component onDownloadClick={openDownloadModal} {...childProps} />
