@@ -237,7 +237,7 @@ const Footer = () => {
                 </a>
             </div>
             <div className={classes.companyName}>
-                주식회사 큐리어스원스
+                주식회사 아페로
             </div>
         </section>
     );
