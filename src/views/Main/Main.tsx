@@ -52,6 +52,27 @@ const useStyles = makeStyles(theme => {
                 marginBottom: 6.75,
             },
         },
+        endModalBody: {
+            position: 'absolute',
+            top: 'calc(50% - 150px)',
+            left: 'calc(50% - 175px)',
+            display: 'flex',
+            width: 350,
+            height: 300,
+            padding: 24,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'white',
+            flexDirection: 'column',
+        },
+        endHeader: {
+            fontWeight: 'bold',
+            fontSize: 24,
+            marginBottom: 24,
+        },
+        endText: {
+            fontSize: 16,
+        },
         alertBody: {
             position: 'absolute',
             top: 'calc(50% - 215px)',
@@ -86,6 +107,7 @@ const Main = ({ component: Component, childProps = {} }): JSX.Element => {
     const classes = useStyles();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [downloadModalOpen, setDownloadModalOpen] = useState(false);
+    const [endModalOpen, setEndModalOpen] = useState(true);
     const [alertOpen, setAlertOpen] = useState(false);
 
     useEffect(() => {
@@ -123,6 +145,22 @@ const Main = ({ component: Component, childProps = {} }): JSX.Element => {
                         variant="temporary"
                     />
                 </div>
+                <Modal
+                    open={endModalOpen}
+                    onClose={() => setEndModalOpen(false)}
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                >
+                    <div className={classes.endModalBody}>
+                        <div className={classes.endHeader}>서비스 종료 안내</div>
+                        <div className={classes.endText}>안녕하세요, 묻다입니다.<br /><br />
+무거운 마음으로 서비스 종료 소식을 전합니다.<br />
+묻다는 <b><u>2022년 9월 1일</u></b>부로 서비스를 종료하게 되었습니다.<br />
+그 동안 묻다에 관심가져주신 모든분들께 진심으로 감사드립니다.<br />
+문의는 hq@mootda.com 으로 연락주시기 바랍니다.
+                        </div>
+                    </div>
+                </Modal>
                 <Modal
                     open={downloadModalOpen}
                     onClose={() => setDownloadModalOpen(false)}
