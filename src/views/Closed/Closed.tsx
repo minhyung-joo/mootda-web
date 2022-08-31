@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => {
         },
         endMessageBox: {
             width: 400,
-            height: 300,
+            height: 282,
             margin: 'auto',
             backgroundColor: 'white',
             border: '1px solid blue',
